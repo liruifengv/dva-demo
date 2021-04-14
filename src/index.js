@@ -11,12 +11,15 @@ const app = dva({
       { name: 'antd', id: 2, key: 2 },
     ],
   },
+  onError(e, dispatch) {
+    console.log(e.message);
+  },
 });
 // 2. Plugins
 // app.use({});
 
 // 3. Model
-// app.model(require('./models/example').default);
+app.model(require('./models/posts').default);
 app.model(require('./models/products').default);
 
 // 4. Router

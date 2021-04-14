@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { Layout, Menu } from 'antd'
 import { renderRoutes } from 'react-router-config'
-import { withRouter } from 'dva/router';
+import { withRouter, routerRedux } from 'dva/router';
 import PropTypes from 'prop-types'
+import { connect } from 'dva';
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
@@ -18,11 +19,13 @@ const { Header, Sider, Content } = Layout
 const BasicLayout = withRouter((props) => {
   const route = props.route
   const history = props.history
+  const dispatch = props.dispatch
   const [collapsed, setCollapsed] = useState(false)
 
   // 菜单点击，跳转路由
   const clickMenu = ({ key }) => {
-    history.push(key)
+    // history.push(key)
+    dispatch(routerRedux.push(key));
   }
 
   const toggle = () => {
@@ -69,4 +72,4 @@ BasicLayout.propTypes = {
   route: PropTypes.any.isRequired
 }
 
-export default BasicLayout;
+export default connect()(BasicLayout);
