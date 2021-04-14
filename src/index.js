@@ -2,13 +2,13 @@ import dva from 'dva';
 import './index.css';
 
 // 1. Initialize
-const createHistory = require("history").createHashHistory
+const createHistory = require("history").createBrowserHistory
 const app = dva({
   history: createHistory(),
   initialState: {
     products: [
-      { name: 'dva', id: 1 },
-      { name: 'antd', id: 2 },
+      { name: 'dva', id: 1, key: 1 },
+      { name: 'antd', id: 2, key: 2 },
     ],
   },
 });

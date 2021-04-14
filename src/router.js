@@ -4,7 +4,7 @@ import { renderRoutes } from 'react-router-config'
 import { Skeleton } from 'antd'
 import BasicLayout from './pages/Layout'
 import Home from './pages/Home'
-import Login from './pages/Login'
+import Products from './pages/Products'
 import NotFound from './pages/NotFound'
 import Posts from './pages/Posts/Posts'
 import Test from './pages/Test/index'
@@ -33,7 +33,7 @@ const routes = [
         render: toRedirect,
       },
       { path: '/home', component: Home },
-      { path: '/login', component: Login },
+      { path: '/products', component: Products },
       {
         path: '/test',
         component: Test,

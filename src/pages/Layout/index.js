@@ -39,8 +39,8 @@ const BasicLayout = withRouter((props) => {
           selectedKeys={[history.location.pathname]}
           onClick={clickMenu}
         >
-          <Menu.Item key="/home" icon={<UserOutlined />}>Helloworld</Menu.Item>
-          <Menu.Item key="/login" icon={<VideoCameraOutlined />}>login</Menu.Item>
+          <Menu.Item key="/home" icon={<UserOutlined />}>Home</Menu.Item>
+          <Menu.Item key="/products" icon={<VideoCameraOutlined />}>Products</Menu.Item>
           <SubMenu key="/test" icon={<MailOutlined />} title="test">
             <Menu.Item key="/test/list">list</Menu.Item>
             <Menu.Item key="/test/detail">detail</Menu.Item>

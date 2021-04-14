@@ -5,7 +5,7 @@ import { Table, Popconfirm, Button } from 'antd';
 const ProductList = ({ onDelete, products }) => {
   const columns = [{
     title: 'Name',
-    dataIndex: 'name',
+    dataIndex: 'name'
   }, {
     title: 'Actions',
     render: (text, record) => {
