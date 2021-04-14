@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Layout, Menu } from 'antd'
 import { renderRoutes } from 'react-router-config'
 import { withRouter, routerRedux } from 'dva/router';
@@ -18,7 +18,6 @@ const BasicLayout = withRouter((props) => {
   const route = props.route
   const history = props.history
   const dispatch = props.dispatch
-  const [collapsed, setCollapsed] = useState(false)
 
   // 菜单点击，跳转路由
   const clickMenu = ({ key }) => {
@@ -26,13 +25,9 @@ const BasicLayout = withRouter((props) => {
     dispatch(routerRedux.push(key));
   }
 
-  const toggle = () => {
-    setCollapsed(!collapsed)
-  }
-
   return (
     <Layout>
-      <Sider width={256} style={{ minHeight: '100vh' }} collapsible collapsed={collapsed}>
+      <Sider width={256} style={{ minHeight: '100vh' }} collapsible>
         <div style={{ height: '32px', background: 'rgba(255,255,255,.2)', margin: '16px' }}/>
         <Menu theme="dark"
           mode="inline"
