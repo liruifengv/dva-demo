@@ -2,7 +2,7 @@ import dva from 'dva';
 import './index.css';
 
 // 1. Initialize
-const createHistory = require("history").createBrowserHistory
+const createHistory = require("history").createHashHistory
 const app = dva({
   history: createHistory(),
   initialState: {

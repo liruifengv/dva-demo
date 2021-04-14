@@ -52,14 +52,8 @@ const BasicLayout = withRouter((props) => {
         </Menu>
       </Sider>
       <Layout >
-        <Header style={{ background: '#fff', padding: '0 20px' }}>
-        {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
-          className: 'trigger',
-          onClick: toggle
-        })}
-        </Header>
-        <Content style={{ margin: '24px 16px 0' }}>
-          <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
+        <Content>
+          <div style={{ padding: 24, background: '#f0f2f5', minHeight: 360 }}>
             {renderRoutes(route.routes)}
           </div>
         </Content>
