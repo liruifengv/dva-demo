@@ -3,13 +3,13 @@ import { Router, Switch, Redirect } from 'dva/router';
 import { renderRoutes } from 'react-router-config'
 import { Skeleton } from 'antd'
 import BasicLayout from './pages/Layout'
-const Home = React.lazy(() => import('./pages/Home'))
-const Login = React.lazy(() => import('./pages/Login'))
-const Test = React.lazy(() => import('./pages/Test/index'))
-const List = React.lazy(() => import('./pages/Test/childPage/List'))
-const Detail = React.lazy(() => import('./pages/Test/childPage/Detail'))
-const NotFound = React.lazy(() => import('./pages/NotFound'))
-const Posts = React.lazy(() => import('./pages/Posts/Posts'))
+import Home from './pages/Home'
+import Login from './pages/Login'
+import NotFound from './pages/NotFound'
+import Posts from './pages/Posts/Posts'
+import Test from './pages/Test/index'
+import List from './pages/Test/childPage/List'
+import Detail from './pages/Test/childPage/Detail'
 
 const toRedirect = () => {
   return (

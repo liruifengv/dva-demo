@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Layout, Menu } from 'antd'
-// import { useHistory } from 'react-router-dom'
 import { renderRoutes } from 'react-router-config'
+import { withRouter } from 'dva/router';
 import PropTypes from 'prop-types'
 import {
   MenuUnfoldOutlined,
@@ -15,16 +15,14 @@ import {
 const { SubMenu } = Menu
 const { Header, Sider, Content } = Layout
 
-const BasicLayout = (props) => {
+const BasicLayout = withRouter((props) => {
   const route = props.route
+  const history = props.history
   const [collapsed, setCollapsed] = useState(false)
-  const [selectedKey, setSelectedKey] = useState('/home')
-  // FIXME
-  // const history = useHistory()
+
   // 菜单点击，跳转路由
   const clickMenu = ({ key }) => {
-    // history.push(key)
-    setSelectedKey(key)
+    history.push(key)
   }
 
   const toggle = () => {
@@ -35,7 +33,12 @@ const BasicLayout = (props) => {
     <Layout>
       <Sider width={256} trigger={null} style={{ minHeight: '100vh' }} collapsible collapsed={collapsed}>
         <div style={{ height: '32px', background: 'rgba(255,255,255,.2)', margin: '16px' }}/>
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={[selectedKey]} selectedKeys={[selectedKey]} onClick={clickMenu}>
+        <Menu theme="dark"
+          mode="inline"
+          defaultSelectedKeys={['/home']}
+          selectedKeys={[history.location.pathname]}
+          onClick={clickMenu}
+        >
           <Menu.Item key="/home" icon={<UserOutlined />}>Helloworld</Menu.Item>
           <Menu.Item key="/login" icon={<VideoCameraOutlined />}>login</Menu.Item>
           <SubMenu key="/test" icon={<MailOutlined />} title="test">
@@ -60,10 +63,10 @@ const BasicLayout = (props) => {
       </Layout>
     </Layout>
   )
-}
+})
 
 BasicLayout.propTypes = {
   route: PropTypes.any.isRequired
 }
 
-export default BasicLayout
+export default BasicLayout;
