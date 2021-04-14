@@ -5,8 +5,6 @@ import { withRouter, routerRedux } from 'dva/router';
 import PropTypes from 'prop-types'
 import { connect } from 'dva';
 import {
-  MenuUnfoldOutlined,
-  MenuFoldOutlined,
   UserOutlined,
   VideoCameraOutlined,
   UploadOutlined,
@@ -14,7 +12,7 @@ import {
 } from '@ant-design/icons'
 
 const { SubMenu } = Menu
-const { Header, Sider, Content } = Layout
+const { Sider, Content } = Layout
 
 const BasicLayout = withRouter((props) => {
   const route = props.route
@@ -34,7 +32,7 @@ const BasicLayout = withRouter((props) => {
 
   return (
     <Layout>
-      <Sider width={256} trigger={null} style={{ minHeight: '100vh' }} collapsible collapsed={collapsed}>
+      <Sider width={256} style={{ minHeight: '100vh' }} collapsible collapsed={collapsed}>
         <div style={{ height: '32px', background: 'rgba(255,255,255,.2)', margin: '16px' }}/>
         <Menu theme="dark"
           mode="inline"
